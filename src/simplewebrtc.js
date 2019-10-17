@@ -161,11 +161,15 @@ function SimpleWebRTC(opts) {
     }
 
     connection.on('stunservers', function (args) {
+        console.log('ignoring', args);
+        return;
         // resets/overrides the config
         self.webrtc.config.peerConnectionConfig.iceServers = args;
         self.emit('stunservers', args);
     });
     connection.on('turnservers', function (args) {
+        console.log('ignoring', args);
+        return;
         // appends to the config
         self.webrtc.config.peerConnectionConfig.iceServers = self.webrtc.config.peerConnectionConfig.iceServers.concat(args);
         self.emit('turnservers', args);

@@ -51,7 +51,23 @@
                 // immediately ask for camera access
                 autoRequestMedia: true,
                 debug: false,
-                detectSpeakingEvents: true
+                detectSpeakingEvents: true,
+                peerConnectionConfig: {
+                iceServers: [{
+                    urls: [ "stun:eu-turn2.xirsys.com" ]
+                    }, {
+                    username: "nCYSbX0mRmmohVGJrQy0ObyA9D9KQ8ua4xRxVRo8nBBnzTF67x8PsTObxrWfvu6yAAAAAF2oPz9tZWdhdG9seWE=",
+                    credential: "0a526856-f0c7-11e9-a0b5-4a049da423ff",
+                    urls: [
+                        "turn:eu-turn2.xirsys.com:80?transport=udp",
+                        "turn:eu-turn2.xirsys.com:3478?transport=udp",
+                        "turn:eu-turn2.xirsys.com:80?transport=tcp",
+                        "turn:eu-turn2.xirsys.com:3478?transport=tcp",
+                        "turns:eu-turn2.xirsys.com:443?transport=tcp",
+                        "turns:eu-turn2.xirsys.com:5349?transport=tcp"
+                    ]
+                    }]
+                }
             });
 
             // when it's ready, join if we got a room from the URL
